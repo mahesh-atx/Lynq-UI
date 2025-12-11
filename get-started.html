@@ -198,32 +198,186 @@
                         <li class="sidebar-item relative">
                             <a href="guide/roadmap.html" class="sidebar-link block py-2 pl-6 text-sm">Roadmap</a>
                         </li>
-                        
                     </ul>
                 </div>
 
-                <!-- Menu Section -->
+                <!-- Components Section -->
                 <div class="sidebar-group">
                     <div class="flex items-center gap-2 mb-4">
                         <i data-lucide="layout-grid" class="w-4 h-4 text-gray-500"></i>
-                        <span class="text-xs text-gray-500 font-medium">Menu</span>
+                        <span class="text-xs text-gray-500 font-medium">Components</span>
                     </div>
-                    <ul class="space-y-0.5">
-                        <li class="sidebar-item relative">
-                            <a href="components.html" class="sidebar-link block py-2 pl-6 text-sm">Components</a>
-                        </li>
-                        <li class="sidebar-item relative">
-                            <a href="#" class="sidebar-link block py-2 pl-6 text-sm">Primitives</a>
-                        </li>
-                        <li class="sidebar-item relative">
-                            <a href="#" class="sidebar-link block py-2 pl-6 text-sm">Icons</a>
-                        </li>
-                    </ul>
+                    
+                    <!-- Core Components -->
+                    <div class="sidebar-category mb-3">
+                        <button onclick="toggleCategory('core')" class="flex items-center justify-between w-full py-1.5 pl-6 pr-2 text-sm text-gray-700 hover:text-black transition-colors">
+                            <span class="font-medium">Core Components</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="icon-core"></i>
+                        </button>
+                        <ul id="cat-core" class="space-y-0.5 pl-4 overflow-hidden transition-all duration-300" style="max-height: 0;">
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Button</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Input</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Textarea</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Checkbox</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Radio</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Switch</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Card</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Container</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Divider</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Typography</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Aspect Ratio</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="sidebar-category mb-3">
+                        <button onclick="toggleCategory('navigation')" class="flex items-center justify-between w-full py-1.5 pl-6 pr-2 text-sm text-gray-700 hover:text-black transition-colors">
+                            <span class="font-medium">Navigation</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="icon-navigation"></i>
+                        </button>
+                        <ul id="cat-navigation" class="space-y-0.5 pl-4 overflow-hidden transition-all duration-300" style="max-height: 0;">
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Navbar</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Sidebar</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Tabs</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Accordion</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Breadcrumbs</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Pagination</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Step Wizard</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Modern UI -->
+                    <div class="sidebar-category mb-3">
+                        <button onclick="toggleCategory('modern-ui')" class="flex items-center justify-between w-full py-1.5 pl-6 pr-2 text-sm text-gray-700 hover:text-black transition-colors">
+                            <span class="font-medium">Modern UI</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="icon-modern-ui"></i>
+                        </button>
+                        <ul id="cat-modern-ui" class="space-y-0.5 pl-4 overflow-hidden transition-all duration-300" style="max-height: 0;">
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Bento Grid</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Spotlight Card</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Hover Card</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Glass Panel</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Grid Pattern</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Mesh Background</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Badge</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Avatar</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Skeleton Loader</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Scroll Area</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Text Gradient</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Parallax Container</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Magnetic Button</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Data Display -->
+                    <div class="sidebar-category mb-3">
+                        <button onclick="toggleCategory('data-display')" class="flex items-center justify-between w-full py-1.5 pl-6 pr-2 text-sm text-gray-700 hover:text-black transition-colors">
+                            <span class="font-medium">Data Display</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="icon-data-display"></i>
+                        </button>
+                        <ul id="cat-data-display" class="space-y-0.5 pl-4 overflow-hidden transition-all duration-300" style="max-height: 0;">
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Table</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Data List</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Progress Bar</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Progress Circle</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Timeline</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Statistics Card</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Code Block</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Complex Inputs -->
+                    <div class="sidebar-category mb-3">
+                        <button onclick="toggleCategory('complex-inputs')" class="flex items-center justify-between w-full py-1.5 pl-6 pr-2 text-sm text-gray-700 hover:text-black transition-colors">
+                            <span class="font-medium">Complex Inputs</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="icon-complex-inputs"></i>
+                        </button>
+                        <ul id="cat-complex-inputs" class="space-y-0.5 pl-4 overflow-hidden transition-all duration-300" style="max-height: 0;">
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Select</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Combobox</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Date Picker</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Time Picker</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Slider</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Range Slider</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Rating Input</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">OTP Input</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Rich Text Editor</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">File Upload</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Image Cropper</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Color Picker</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Landing Page -->
+                    <div class="sidebar-category mb-3">
+                        <button onclick="toggleCategory('landing-page')" class="flex items-center justify-between w-full py-1.5 pl-6 pr-2 text-sm text-gray-700 hover:text-black transition-colors">
+                            <span class="font-medium">Landing Page</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="icon-landing-page"></i>
+                        </button>
+                        <ul id="cat-landing-page" class="space-y-0.5 pl-4 overflow-hidden transition-all duration-300" style="max-height: 0;">
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Hero Section</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Feature Grid</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Pricing Table</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Testimonials</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Logo Cloud</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Marquee</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Particle Background</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Utility -->
+                    <div class="sidebar-category mb-3">
+                        <button onclick="toggleCategory('utility')" class="flex items-center justify-between w-full py-1.5 pl-6 pr-2 text-sm text-gray-700 hover:text-black transition-colors">
+                            <span class="font-medium">Utility</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="icon-utility"></i>
+                        </button>
+                        <ul id="cat-utility" class="space-y-0.5 pl-4 overflow-hidden transition-all duration-300" style="max-height: 0;">
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Toast</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Alert</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Clipboard Helper</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Error Boundary</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Command Palette</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Search Bar</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Theme Switcher</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Global Styles</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">RTL Support</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- AI Components -->
+                    <div class="sidebar-category mb-3">
+                        <button onclick="toggleCategory('ai-components')" class="flex items-center justify-between w-full py-1.5 pl-6 pr-2 text-sm text-gray-700 hover:text-black transition-colors">
+                            <span class="font-medium">AI Components</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="icon-ai-components"></i>
+                        </button>
+                        <ul id="cat-ai-components" class="space-y-0.5 pl-4 overflow-hidden transition-all duration-300" style="max-height: 0;">
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Chat Bubble</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Message List</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">AI Prompt</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Markdown Renderer</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Typing Indicator</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Voice Input</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Layout Utilities -->
+                    <div class="sidebar-category mb-3">
+                        <button onclick="toggleCategory('layout-utilities')" class="flex items-center justify-between w-full py-1.5 pl-6 pr-2 text-sm text-gray-700 hover:text-black transition-colors">
+                            <span class="font-medium">Layout Utilities</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 transition-transform duration-200" id="icon-layout-utilities"></i>
+                        </button>
+                        <ul id="cat-layout-utilities" class="space-y-0.5 pl-4 overflow-hidden transition-all duration-300" style="max-height: 0;">
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Grid Layout</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Flex Layout</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Stack</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Section Wrapper</a></li>
+                            <li class="sidebar-item relative"><a href="#" class="sidebar-link block py-1 pl-6 text-xs">Page Wrapper</a></li>
+                        </ul>
+                    </div>
                 </div>
 
             </div>
         </aside>
-        <script src="js/sidebar.js"></script>
 
         <!-- Main Content -->
         <main class="flex-1 min-w-0 pt-8 pb-16 px-6 md:px-12">
@@ -415,31 +569,8 @@ module.exports = {
         </div>
     </div>
 
+    <script src="js/sidebar.js"></script>
     <script>
-        // Icons
-        document.addEventListener('DOMContentLoaded', () => {
-            if (window.lucide) {
-                lucide.createIcons();
-            }
-        });
-
-        // Sidebar Group Toggle
-        function toggleSidebarGroup(btn) {
-            const list = btn.nextElementSibling;
-            const icon = btn.querySelector('i');
-
-            // Toggle visibility
-            list.classList.toggle('hidden');
-
-            // Rotate icon
-            if (list.classList.contains('hidden')) {
-                icon.classList.add('-rotate-90');
-                icon.classList.remove('rotate-0');
-            } else {
-                icon.classList.remove('-rotate-90');
-                icon.classList.add('rotate-0');
-            }
-        }
 
         // Copy Code Logic
         function copyCode(btn) {

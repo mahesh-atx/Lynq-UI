@@ -198,7 +198,6 @@
                         <li class="sidebar-item relative">
                             <a href="roadmap.html" class="sidebar-link block py-2 pl-6 text-sm">Roadmap</a>
                         </li>
-                        
                     </ul>
                 </div>
 
@@ -379,7 +378,6 @@
 
             </div>
         </aside>
-        <script src="js/sidebar.js"></script>
 
         <!-- Main Content -->
         <main class="flex-1 min-w-0 pt-8 pb-16 px-6 md:px-12">
@@ -574,28 +572,8 @@ module.exports = {
         </div>
     </div>
 
+    <script src="../js/sidebar.js"></script>
     <script>
-        // Icons
-        document.addEventListener('DOMContentLoaded', () => {
-            if (window.lucide) {
-                lucide.createIcons();
-            }
-        });
-
-        // Toggle category visibility
-        function toggleCategory(categoryId) {
-            const list = document.getElementById(`cat-${categoryId}`);
-            const icon = document.getElementById(`icon-${categoryId}`);
-            
-            if (list.style.maxHeight === '0px' || list.style.maxHeight === '') {
-                list.style.maxHeight = list.scrollHeight + 'px';
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                list.style.maxHeight = '0px';
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
-
         // Copy Code Logic
         function copyCode(btn) {
             const pre = btn.parentElement.querySelector('pre');

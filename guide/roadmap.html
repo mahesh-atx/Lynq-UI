@@ -107,17 +107,27 @@
         <!-- Left Sidebar -->
         <aside class="hidden md:block w-64 pt-8 pb-16 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto pr-6 select-none">
             <div class="space-y-8">
+
+                <!-- Guide Section -->
                 <div class="sidebar-group">
                     <div class="flex items-center gap-2 mb-4">
                         <i data-lucide="book-open" class="w-4 h-4 text-gray-500"></i>
                         <span class="text-xs text-gray-500 font-medium">Guide</span>
                     </div>
                     <ul class="space-y-0.5">
-                        <li class="sidebar-item relative"><a href="introduction.html" class="sidebar-link block py-2 pl-6 text-sm">Introduction</a></li>
-                        <li class="sidebar-item relative"><a href="installation.html" class="sidebar-link block py-2 pl-6 text-sm">Installation</a></li>
-                        <li class="sidebar-item active"><a href="roadmap.html" class="sidebar-link active block py-2 pl-6 text-sm font-medium">Roadmap</a></li>
+                        <li class="sidebar-item relative">
+                            <a href="introduction.html" class="sidebar-link block py-2 pl-6 text-sm">Introduction</a>
+                        </li>
+                        <li class="sidebar-item relative">
+                            <a href="installation.html" class="sidebar-link block py-2 pl-6 text-sm">Installation</a>
+                        </li>
+                        <li class="sidebar-item active">
+                            <a href="roadmap.html" class="sidebar-link active block py-2 pl-6 text-sm font-medium">Roadmap</a>
+                        </li>
                     </ul>
                 </div>
+
+                <!-- Components Section -->
                 <div class="sidebar-group">
                     <div class="flex items-center gap-2 mb-4">
                         <i data-lucide="layout-grid" class="w-4 h-4 text-gray-500"></i>
@@ -291,6 +301,7 @@
                         </ul>
                     </div>
                 </div>
+
             </div>
         </aside>
 
@@ -434,23 +445,8 @@
         </aside>
     </div>
 
+    <script src="../js/sidebar.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); });
-        
-        // Toggle category visibility
-        function toggleCategory(categoryId) {
-            const list = document.getElementById(`cat-${categoryId}`);
-            const icon = document.getElementById(`icon-${categoryId}`);
-            
-            if (list.style.maxHeight === '0px' || list.style.maxHeight === '') {
-                list.style.maxHeight = list.scrollHeight + 'px';
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                list.style.maxHeight = '0px';
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {

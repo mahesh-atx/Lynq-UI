@@ -250,7 +250,6 @@
                         <li class="sidebar-item relative">
                             <a href="roadmap.html" class="sidebar-link block py-2 pl-6 text-sm">Roadmap</a>
                         </li>
-                        
                     </ul>
                 </div>
 
@@ -738,28 +737,8 @@
 
     </div>
 
+    <script src="../js/sidebar.js"></script>
     <script>
-        // Icons
-        document.addEventListener('DOMContentLoaded', () => {
-            if (window.lucide) {
-                lucide.createIcons();
-            }
-        });
-
-        // Toggle category visibility
-        function toggleCategory(categoryId) {
-            const list = document.getElementById(`cat-${categoryId}`);
-            const icon = document.getElementById(`icon-${categoryId}`);
-            
-            if (list.style.maxHeight === '0px' || list.style.maxHeight === '') {
-                list.style.maxHeight = list.scrollHeight + 'px';
-                icon.style.transform = 'rotate(180deg)';
-            } else {
-                list.style.maxHeight = '0px';
-                icon.style.transform = 'rotate(0deg)';
-            }
-        }
-
         // TOC Active State (Simple scroll spy)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
