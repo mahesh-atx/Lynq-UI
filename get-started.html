@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - MonoUI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #0f0f0f;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e5e5e5;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4d4d4;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Code Block Styling */
+        pre {
+            font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-link {
+            color: #64748b;
+            transition: all 0.2s;
+        }
+
+        .sidebar-link:hover {
+            color: #000;
+        }
+
+        .sidebar-link.active {
+            color: #000;
+            font-weight: 500;
+        }
+
+        /* Left border indicator for active/hover */
+        .sidebar-item {
+            border-left: 2px solid transparent;
+            margin-left: 0;
+            transition: border-color 0.2s ease;
+        }
+
+        .sidebar-item:hover {
+            border-left-color: #d1d5db;
+        }
+
+        .sidebar-item.active {
+            border-left-color: #000;
+        }
+
+        /* TOC link styling */
+        .toc-link {
+            color: #64748b;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+            border-left: 1px solid #e2e8f0;
+            padding-left: 1rem;
+            margin-left: -1px;
+            display: block;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+        }
+
+        .toc-link:hover {
+            color: #0f172a;
+            border-left-color: #94a3b8;
+        }
+
+        .toc-link.active {
+            color: #0f172a;
+            font-weight: 500;
+            border-left-color: #000;
+        }
+
+        .tab-btn.active {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+
+        .tab-btn.inactive {
+            color: #9ca3af;
+            border-bottom-color: transparent;
+        }
+
+        .tab-btn.inactive:hover {
+            color: #e5e7eb;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen">
+
+    <!-- Sticky Header -->
+    <header class="glass-header sticky top-0 z-50 h-16">
+        <div class="max-w-[1400px] mx-auto px-6 h-full flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <!-- Logo -->
+                <a href="index.html" class="font-bold text-xl tracking-tighter flex items-center gap-2">
+                    <div class="w-6 h-6 bg-black text-white flex items-center justify-center rounded text-xs">M</div>
+                    MONO<span class="text-gray-400">UI</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
+                    <a href="#" class="text-black">Docs</a>
+                    <a href="components.html" class="hover:text-black transition-colors">Components</a>
+                    <a href="#" class="hover:text-black transition-colors">Showcase</a>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <!-- Search Mockup -->
+                <button
+                    class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-gray-100 rounded-md text-sm text-gray-500 hover:bg-gray-200 transition-colors w-64 border border-transparent hover:border-gray-300">
+                    <i data-lucide="search" class="w-4 h-4"></i>
+                    <span>Search documentation...</span>
+                    <span
+                        class="ml-auto text-xs bg-white text-gray-400 px-1.5 py-0.5 rounded border border-gray-200">Ctrl
+                        K</span>
+                </button>
+
+                <!-- Socials -->
+                <div class="flex items-center gap-2 pl-2 border-l border-gray-200">
+                    <a href="#"
+                        class="p-2 hover:bg-gray-100 rounded-md text-gray-600 hover:text-black transition-colors">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#"
+                        class="p-2 hover:bg-gray-100 rounded-md text-gray-600 hover:text-black transition-colors">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                    </a>
+                </div>
+
+                <button class="md:hidden p-2 hover:bg-gray-100 rounded-md">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="flex-1 max-w-[1400px] mx-auto w-full flex">
+
+        <!-- Left Sidebar (Navigation) -->
+        <aside
+            class="hidden md:block w-64 pt-8 pb-16 sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto pr-6 select-none">
+            <div class="space-y-8">
+
+                <!-- Guide Section -->
+                <div class="sidebar-group">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="book-open" class="w-4 h-4 text-gray-500"></i>
+                        <span class="text-xs text-gray-500 font-medium">Guide</span>
+                    </div>
+                    <ul class="space-y-0.5">
+                        <li class="sidebar-item relative">
+                            <a href="guide/introduction.html" class="sidebar-link block py-2 pl-6 text-sm">Introduction</a>
+                        </li>
+                        <li class="sidebar-item active">
+                            <a href="guide/installation.html" class="sidebar-link active block py-2 pl-6 text-sm font-medium">Installation</a>
+                        </li>
+                        <li class="sidebar-item relative">
+                            <a href="guide/roadmap.html" class="sidebar-link block py-2 pl-6 text-sm">Roadmap</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+
+                <!-- Menu Section -->
+                <div class="sidebar-group">
+                    <div class="flex items-center gap-2 mb-4">
+                        <i data-lucide="layout-grid" class="w-4 h-4 text-gray-500"></i>
+                        <span class="text-xs text-gray-500 font-medium">Menu</span>
+                    </div>
+                    <ul class="space-y-0.5">
+                        <li class="sidebar-item relative">
+                            <a href="components.html" class="sidebar-link block py-2 pl-6 text-sm">Components</a>
+                        </li>
+                        <li class="sidebar-item relative">
+                            <a href="#" class="sidebar-link block py-2 pl-6 text-sm">Primitives</a>
+                        </li>
+                        <li class="sidebar-item relative">
+                            <a href="#" class="sidebar-link block py-2 pl-6 text-sm">Icons</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </aside>
+        <script src="js/sidebar.js"></script>
+
+        <!-- Main Content -->
+        <main class="flex-1 min-w-0 pt-8 pb-16 px-6 md:px-12">
+
+            <!-- Breadcrumbs -->
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
+                <span>Docs</span>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span>Installation</span>
+            </div>
+
+            <div class="mb-10">
+                <h1 class="text-4xl font-bold tracking-tight mb-4 text-black">Installation</h1>
+                <p class="text-xl text-gray-600 leading-relaxed">How to install dependencies and structure your app.</p>
+            </div>
+
+            <!-- Page Actions -->
+            <div class="flex gap-3 mb-12">
+                <button
+                    class="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium border border-gray-200 rounded hover:bg-gray-50 bg-white shadow-sm transition-colors">
+                    <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                    Edit on GitHub
+                </button>
+            </div>
+
+            <!-- Content Body -->
+            <div class="prose prose-gray max-w-none">
+
+                <!-- Step 1 -->
+                <div id="step-1" class="mb-16 scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-gray-100 text-black border border-gray-200 flex items-center justify-center font-bold text-sm shrink-0">
+                            1</div>
+                        <h2 class="text-2xl font-semibold tracking-tight">Create project</h2>
+                    </div>
+
+                    <p class="text-gray-600 mb-6 pl-12">Start by creating a new project. We support all major
+                        frameworks.</p>
+
+                    <div class="pl-12">
+                        <!-- Code Block Container -->
+                        <div class="bg-[#0f0f0f] rounded-xl overflow-hidden shadow-2xl ring-1 ring-gray-900/5">
+                            <!-- Tabs -->
+                            <div class="flex items-center border-b border-gray-800 px-2 bg-[#1a1a1a]/50">
+                                <button onclick="switchTab(this, 'step1-code')"
+                                    class="tab-btn active px-4 py-3 text-xs font-medium border-b-2 transition-all"
+                                    data-type="npm">npm</button>
+                                <button onclick="switchTab(this, 'step1-code')"
+                                    class="tab-btn inactive px-4 py-3 text-xs font-medium border-b-2 transition-all"
+                                    data-type="pnpm">pnpm</button>
+                                <button onclick="switchTab(this, 'step1-code')"
+                                    class="tab-btn inactive px-4 py-3 text-xs font-medium border-b-2 transition-all"
+                                    data-type="yarn">yarn</button>
+                                <button onclick="switchTab(this, 'step1-code')"
+                                    class="tab-btn inactive px-4 py-3 text-xs font-medium border-b-2 transition-all"
+                                    data-type="bun">bun</button>
+                            </div>
+                            <!-- Code Area -->
+                            <div class="p-4 relative group bg-[#0f0f0f]">
+                                <button onclick="copyCode(this)"
+                                    class="absolute right-4 top-4 p-2 bg-white/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/20">
+                                    <i data-lucide="copy" class="w-4 h-4 text-white"></i>
+                                </button>
+                                <pre id="step1-code"
+                                    class="text-sm text-gray-300 font-mono overflow-x-auto p-2">npm create vite@latest my-project -- --template react-ts</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div id="step-2" class="mb-16 scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-gray-100 text-black border border-gray-200 flex items-center justify-center font-bold text-sm shrink-0">
+                            2</div>
+                        <h2 class="text-2xl font-semibold tracking-tight">Add Tailwind CSS</h2>
+                    </div>
+
+                    <p class="text-gray-600 mb-6 pl-12">Install Tailwind CSS and its peer dependencies via npm, and then
+                        run the init command to generate both <code>tailwind.config.js</code> and
+                        <code>postcss.config.js</code>.
+                    </p>
+
+                    <div class="pl-12">
+                        <div class="bg-[#0f0f0f] rounded-xl overflow-hidden shadow-2xl ring-1 ring-gray-900/5">
+                            <div
+                                class="flex items-center justify-between border-b border-gray-800 px-4 py-2 bg-[#1a1a1a]/50">
+                                <div class="flex gap-1.5">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
+                                    <div class="w-2.5 h-2.5 rounded-full bg-gray-600"></div>
+                                </div>
+                                <span class="text-xs text-gray-500 font-mono">Terminal</span>
+                            </div>
+                            <div class="p-4 relative group bg-[#0f0f0f]">
+                                <button onclick="copyCode(this)"
+                                    class="absolute right-4 top-4 p-2 bg-white/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/20">
+                                    <i data-lucide="copy" class="w-4 h-4 text-white"></i>
+                                </button>
+                                <pre class="text-sm text-gray-300 font-mono overflow-x-auto p-2">npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div id="step-3" class="mb-16 scroll-mt-24">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div
+                            class="w-8 h-8 rounded-lg bg-gray-100 text-black border border-gray-200 flex items-center justify-center font-bold text-sm shrink-0">
+                            3</div>
+                        <h2 class="text-2xl font-semibold tracking-tight">Configure Paths</h2>
+                    </div>
+
+                    <p class="text-gray-600 mb-6 pl-12">Add the paths to all of your template files in your
+                        <code>tailwind.config.js</code> file.
+                    </p>
+
+                    <div class="pl-12">
+                        <div class="bg-[#0f0f0f] rounded-xl overflow-hidden shadow-2xl ring-1 ring-gray-900/5">
+                            <div
+                                class="flex items-center justify-between border-b border-gray-800 px-4 py-2 bg-[#1a1a1a]/50">
+                                <span class="text-xs text-gray-400 font-mono">tailwind.config.js</span>
+                            </div>
+                            <div class="p-4 relative group bg-[#0f0f0f]">
+                                <button onclick="copyCode(this)"
+                                    class="absolute right-4 top-4 p-2 bg-white/10 rounded-md opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/20">
+                                    <i data-lucide="copy" class="w-4 h-4 text-white"></i>
+                                </button>
+                                <pre class="text-sm text-gray-300 font-mono overflow-x-auto p-2">/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex items-center justify-between border-t border-gray-200 pt-8 mt-16">
+                <div>
+                    <!-- Placeholder for Prev -->
+                </div>
+                <a href="#" class="group flex flex-col items-end text-right">
+                    <span
+                        class="text-xs text-gray-500 font-medium mb-1 group-hover:text-black transition-colors">Next</span>
+                    <span class="text-lg font-semibold text-black flex items-center gap-2">
+                        Theming
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </span>
+                </a>
+            </div>
+
+        </main>
+
+        <!-- Right TOC -->
+        <aside class="hidden xl:block w-64 pt-8 pb-16 sticky top-16 h-[calc(100vh-4rem)]">
+            <div>
+                <h5 class="font-semibold text-sm mb-4 text-black">On this page</h5>
+                <nav class="flex flex-col">
+                    <a href="#step-1" class="toc-link">Create project</a>
+                    <a href="#step-2" class="toc-link">Add Tailwind CSS</a>
+                    <a href="#step-3" class="toc-link">Configure Paths</a>
+                </nav>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <div class="bg-black text-white px-4 py-3 rounded-lg shadow-xl flex items-center gap-3">
+            <i data-lucide="check-circle" class="w-4 h-4 text-green-400"></i>
+            <div>
+                <p class="text-sm font-medium">Copied to clipboard</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Icons
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+
+        // Sidebar Group Toggle
+        function toggleSidebarGroup(btn) {
+            const list = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+
+            // Toggle visibility
+            list.classList.toggle('hidden');
+
+            // Rotate icon
+            if (list.classList.contains('hidden')) {
+                icon.classList.add('-rotate-90');
+                icon.classList.remove('rotate-0');
+            } else {
+                icon.classList.remove('-rotate-90');
+                icon.classList.add('rotate-0');
+            }
+        }
+
+        // Copy Code Logic
+        function copyCode(btn) {
+            const pre = btn.parentElement.querySelector('pre');
+            if (pre) {
+                navigator.clipboard.writeText(pre.innerText).then(showToast).catch(console.error);
+            }
+        }
+
+        // Toast
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', 'translate-y-20');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-20');
+            }, 2000);
+        }
+
+        // TOC Active State (Simple scroll spy)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    document.querySelectorAll('.toc-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('[id^="step-"]').forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Helper: Switch Code Tabs
+        function switchTab(btn, targetId) {
+            // 1. Update visual state of tabs
+            const container = btn.parentElement;
+            const tabs = container.querySelectorAll('.tab-btn');
+
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.classList.add('inactive');
+            });
+
+            btn.classList.remove('inactive');
+            btn.classList.add('active');
+
+            // 2. Update content based on type
+            const type = btn.dataset.type;
+            const preElement = document.getElementById(targetId);
+
+            // Dictionary for commands
+            const commands = {
+                npm: "npm create vite@latest my-project -- --template react-ts",
+                pnpm: "pnpm create vite my-project --template react-ts",
+                yarn: "yarn create vite my-project --template react-ts",
+                bun: "bun create vite my-project --template react-ts"
+            };
+
+            if (commands[type]) {
+                preElement.innerText = commands[type];
+            }
+        }
+    </script>
+</body>
+
+</html>
